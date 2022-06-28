@@ -15,6 +15,9 @@ export const Header: FC = () => (
       <NavLink to={AppRoutes.CHARACTERS} className={styles.linkButton}>
         Characters
       </NavLink>
+      <NavLink to={AppRoutes.COLLECTION} className={styles.linkButton}>
+        Your Collection
+      </NavLink>
     </Toolbar>
   </AppBar>
 );
