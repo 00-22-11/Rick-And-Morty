@@ -12,11 +12,11 @@ export const CharactersPage: FC = () => {
 
   return (
     <div className={styles.root}>
-      {characters.map(({ id, name, image, origin }: RMInterfaceApi) =>
+      {characters.map(({ id, name, image }: RMInterfaceApi) =>
         isLoading ? (
           <Skeleton variant="rectangular" animation="pulse" width={345} height={200} style={{ borderRadius: '4px' }} />
         ) : (
-          <CharacterCard key={id} id={id} name={name} image={image} origin={origin} />
+          <CharacterCard key={id} id={id} name={name} image={image} />
         )
       )}
     </div>
