@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { Header } from '../shared/componets';
+import { Header } from '../shared/components';
 
 interface Props {
   children: ReactNode;
