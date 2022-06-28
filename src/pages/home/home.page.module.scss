@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'League Gothic';
+  font-size: 24px;
+  color: deeppink;
+  animation: blink 1300ms infinite;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.paragpaph {
+  text-align: center;
+}
+
+.heading {
+  font-size: 52px;
+}
+
+@keyframes blink {
+  0% {  text-shadow:  0px 0px 15px rgba(deeppink, .7) }
+  50% {  text-shadow:  none }
+  100% {  text-shadow:  0px 0px 15px rgba(deeppink, .7) }
+}

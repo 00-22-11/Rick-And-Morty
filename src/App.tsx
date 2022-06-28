@@ -1,5 +1,10 @@
 import { FC } from 'react';
 
-export const App: FC = () => {
-  return <div>My project starts here</div>;
-};
+import { AppRouter } from './App.router';
+import { Layout } from './layout';
+
+export const App: FC = () => (
+  <Layout>
+    <AppRouter />
+  </Layout>
+);
