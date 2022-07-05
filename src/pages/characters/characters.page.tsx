@@ -19,6 +19,7 @@ export const CharactersPage: FC = observer(() => {
         ? characters.map(({ id, name, image }: RMInterfaceApi) =>
             isLoading ? (
               <Skeleton
+                key={id}
                 variant="rectangular"
                 animation="pulse"
                 width={345}

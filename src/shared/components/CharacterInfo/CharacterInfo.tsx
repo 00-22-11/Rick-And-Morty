@@ -10,13 +10,17 @@ import { useCharacterInfoViewModel } from './useCharacterInfo.vm';
 
 export const CharacterInfo: FC = observer(() => {
   const { isLoading } = useCharacterInfoViewModel();
-  const { characterInfo } = charactersStore;
+  const { characterInfo, addFavorites } = charactersStore;
 
   if (!characterInfo) {
     return null;
   }
 
   const { id, name, image, gender, species, status } = characterInfo;
+
+  const handleClick = (charId: number) => {
+    addFavorites(charId);
+  };
 
   return !isLoading ? (
     <div className={styles.container}>
@@ -29,7 +33,7 @@ export const CharacterInfo: FC = observer(() => {
           Gender: {gender} <br />
           Species: {species} <br />
           Status: {status} <br />
-          <Button variant="outlined" color={gender === 'Male' ? 'primary' : 'error'}>
+          <Button variant="outlined" color={gender === 'Male' ? 'primary' : 'error'} onClick={() => handleClick(id)}>
             Add to favorites
           </Button>
         </div>

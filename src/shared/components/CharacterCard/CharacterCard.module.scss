@@ -1,3 +1,10 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .card:hover {
   box-shadow: 5px 3px 3px deeppink;
 }

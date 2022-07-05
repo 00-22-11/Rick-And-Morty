@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import charactersStore from '../../../shared/stores/characters.store';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useCharacterInfoViewModel = (): any => {
+export const useCharacterInfoViewModel = (): { isLoading: boolean } => {
   const { charId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
 

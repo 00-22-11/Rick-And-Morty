@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-basis: 25%;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 100px auto 0;
+  gap: 25px;
+}
