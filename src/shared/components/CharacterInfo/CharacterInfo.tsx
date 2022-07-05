@@ -1,23 +1,16 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 
 import { Button } from '@mui/material';
 import cx from 'classnames';
-import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-import { getCharactersInfoApi } from '../../../api';
+import charactersStore from '../../../shared/stores/characters.store';
 import styles from './CharacterInfo.module.scss';
+import { useCharacterInfoViewModel } from './useCharacterInfo.vm';
 
-export const CharacterInfo: FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [characterInfo, setCharacterInfo] = useState<any | []>([]);
-  const { charId } = useParams();
-
-  useEffect(() => {
-    (async () => {
-      const data = await getCharactersInfoApi(`https://rickandmortyapi.com/api/character/${charId}`);
-      setCharacterInfo(data);
-    })();
-  }, [charId]);
+export const CharacterInfo: FC = observer(() => {
+  const { isLoading } = useCharacterInfoViewModel();
+  const { characterInfo } = charactersStore;
 
   if (!characterInfo) {
     return null;
@@ -25,7 +18,7 @@ export const CharacterInfo: FC = () => {
 
   const { id, name, image, gender, species, status } = characterInfo;
 
-  return (
+  return !isLoading ? (
     <div className={styles.container}>
       <div className={cx(styles.root, gender === 'Male' ? styles.colorBlue : styles.colorPink)}>
         <div>
@@ -37,10 +30,12 @@ export const CharacterInfo: FC = () => {
           Species: {species} <br />
           Status: {status} <br />
           <Button variant="outlined" color={gender === 'Male' ? 'primary' : 'error'}>
-            Add to my collection
+            Add to favorites
           </Button>
         </div>
       </div>
     </div>
+  ) : (
+    <div className={styles.loadingText}>Loading, please wait...</div>
   );
-};
+});

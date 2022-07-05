@@ -6,16 +6,16 @@ import { CharactersPage, HomePage, UserCollection } from './pages';
 import { CharacterInfo } from './shared/components';
 
 export const AppRoutes = {
-  HOME: '/',
+  ABOUT: '/',
   CHARACTERS: '/characters',
-  COLLECTION: '/collection'
+  FAVORITES: '/farvorites'
 };
 
 export const AppRouter: FC = () => (
   <Routes>
-    <Route path={AppRoutes.HOME} element={<HomePage />} />
+    <Route path={AppRoutes.ABOUT} element={<HomePage />} />
     <Route path={AppRoutes.CHARACTERS} element={<CharactersPage />} />
     <Route path={`${AppRoutes.CHARACTERS}/:charId`} element={<CharacterInfo />} />
-    <Route path={AppRoutes.COLLECTION} element={<UserCollection />} />
+    <Route path={AppRoutes.FAVORITES} element={<UserCollection />} />
   </Routes>
 );
